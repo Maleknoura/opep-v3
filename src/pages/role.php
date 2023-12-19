@@ -2,20 +2,20 @@
 
 
 
-include "RoleHandler.php";
+include "UserRoleUpdate.php";
 
 session_start();
 
 if (isset($_POST['submit'])) {
-    $connection = new $conn();
+    
     $userId = $_GET['id'];
     $choice = $_POST['user-choice'];
 
-    $roleHandler = new RoleHandler();
+    $roleHandler = new UserRoleUpdate($conn);
 
 
     if ($choice === "client") {
-        $result = $roleHandler->assignRole($userId, 0, 1);
+        $result = $roleHandler->updateRole($userId, 0, 1);
 
         if ($result === true) {
 
@@ -25,7 +25,7 @@ if (isset($_POST['submit'])) {
             echo $result;
         }
     } else {
-        $result = $roleHandler->assignRole($userId, 1, 0);
+        $result = $roleHandler->updateRole($userId, 1, 0);
 
         if ($result === true) {
 
