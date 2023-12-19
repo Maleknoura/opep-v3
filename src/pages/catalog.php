@@ -49,9 +49,9 @@ include_once "plante.php";
             
         ?>
             <div class="max-w-xs rounded overflow-hidden shadow-lg transition-transform transform hover:scale-105 duration-300 ease-in-out mb-8">
-                <img class="w-full h-40 object-cover" src="/images/" alt="Plant Image">
+                <img class="w-full h-40 object-cover" src="../images/Plants/<?=$row->getplantimage()?>" alt="Plant Image">
                 <div class="px-4 py-2">
-                    <div class="font-bold text-md mb-1"><?php echo $row->getplantId() ?></div>
+                    <div class="font-bold text-md mb-1"><?php echo $row->getplantName() ?></div>
                     <p class="text-gray-700 text-sm"></p>
                 </div>
                 <div class="px-4 pt-2 pb-1">

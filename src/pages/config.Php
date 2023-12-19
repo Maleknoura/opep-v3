@@ -5,7 +5,7 @@ class Config
       private $username = "root";
       private $password = "";
       private $dbname = "opepver2";
-      protected $conn;
+      private $conn;
 
       public  function conn()
       {

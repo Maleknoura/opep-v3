@@ -17,7 +17,7 @@ include "plante.php";
     <div x-show="isOpen" @click.away="isOpen = false" class="fixed inset-0 overflow-y-auto px-4 py-6 top-0 left-0 flex items-center justify-center z-50">
         <div class="relative bg-white p-6 rounded-md shadow-xl max-w-md w-full">
             <!-- Contenu du formulaire d'ajout de plante -->
-            <form action="addplante.php" method="post">
+            <form action="addplante.php" method="post" enctype="multipart/form-data">
                 <label for="plantName">Plant Name:</label>
                 <input type="text" name="plantName" required class="block w-full mt-2 border-gray-300 rounded-md">
 

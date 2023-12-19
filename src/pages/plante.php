@@ -108,17 +108,15 @@ public function addplant() {
                     
     $stmt = $this->conn->prepare($insertquery);
 
-
-    $stmt->bindParam(":plantName", $this->plantName, PDO::PARAM_STR);
-    $stmt->bindParam(":plantDesc", $this->plantDesc, PDO::PARAM_STR);
-    $stmt->bindParam(":plantImage", $this->plantImage, PDO::PARAM_STR);
-    $stmt->bindParam(":plantPrice", $this->plantPrice, PDO::PARAM_INT);
-    $stmt->bindParam(":categoryId", $this->categoryId, PDO::PARAM_INT);
-
+    $stmt->bindParam(":plantName", $this->plantName);
+    $stmt->bindParam(":plantDesc", $this->plantDesc);
+    $stmt->bindParam(":plantImage", $this->plantImage);
+    $stmt->bindParam(":plantPrice", $this->plantPrice);
+    $stmt->bindParam(":categoryId", $this->categoryId);
     if ($stmt->execute()) {
-        echo "Ajout avec succès";
+        die( "Ajout avec succès");
     } else {
-        echo "Erreur lors de l'ajout";
+        die("Erreur lors de l'ajout");
     }
 }
 public static function getAllCategories() {
