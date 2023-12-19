@@ -17,4 +17,5 @@ if (isset($_POST['submit'])) {
     $plantObject->setcategoryId($categoryId);
 
     $plantObject->addplant();
+
 }

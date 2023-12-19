@@ -13,7 +13,6 @@ if (isset($_SESSION['client_name']) || isset($_SESSION['admin_name'])) {
 
 
 
-
 if (isset($_POST['submit'])) {
     $username = htmlspecialchars($_POST['username']);
     $email = htmlspecialchars($_POST['email']);

@@ -24,8 +24,8 @@ include "plante.php";
                 <label for="plantDesc" class="mt-4">Plant Description:</label>
                 <textarea name="plantDesc" required class="block w-full mt-2 border-gray-300 rounded-md"></textarea>
 
-                <label for="plantImage" class="mt-4">Plant Image URL:</label>
-                <input type="text" name="plantImage" required class="block w-full mt-2 border-gray-300 rounded-md">
+                <label for="plantImage" class="mt-4">Plant Image </label>
+                <input type="file" name="plantImage" required class="block w-full mt-2 border-gray-300 rounded-md">
 
                 <label for="plantPrice" class="mt-4">Plant Price:</label>
                 <input type="number" name="plantPrice" required class="block w-full mt-2 border-gray-300 rounded-md">

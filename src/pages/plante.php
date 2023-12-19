@@ -68,8 +68,6 @@ public function setcategoryId($categoryId){
 
 
 
-
-
 public static function getAllPlants() {
     $conn = (new Config())->conn();
     $stmt = $conn->query("SELECT p.*, c.categoryName 
@@ -102,6 +100,8 @@ public function deletePlant($plantId) {
         echo "erreur lors de la suppression";
     }
 }
+
+
 public function addplant() {
     $insertquery = "INSERT INTO plants ( plantName, plantDesc, plantImage, plantPrice, categoryId) 
                     VALUES ( :plantName, :plantDesc, :plantImage, :plantPrice, :categoryId)";
@@ -121,6 +121,49 @@ public function addplant() {
         echo "Erreur lors de l'ajout";
     }
 }
+public static function getAllCategories() {
+    try {
+        $conn = (new Config())->conn();
+        $stmt = $conn->query("SELECT * FROM categories");
+        // $stmt->bindParam(":categoryId",$categoryId,PDO::PARAM_INT);
+       $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+ 
+       
+        return $res;
+    } catch (PDOException $e) {
+       
+        echo "Error fetching categories: " . $e->getMessage();
+        return [];
+    }
+}
+public static function getAllCategoriesId($categoryId) {
+    try {
+        $conn = (new Config())->conn();
+        $stmt = $conn->prepare("SELECT * FROM plants WHERE categoryId = :categoryId");
+        $stmt->bindParam(":categoryId", $categoryId, PDO::PARAM_INT);
+        $stmt->execute();
+        $res = $stmt->fetch(PDO::FETCH_ASSOC); // Use fetch instead of fetchAll
+        $arrayplants=array();
+
+
+   if($res)
+        {
+            
+            $p = new plante ($res ['plantId'],$res['plantName'],$res['plantDesc'],$res['plantImage'],$res['plantPrice'],$res['categoryId']);
+    
+            array_push($arrayplants,$p);
+        }
+       
+    return $arrayplants;
+        
+     
+    } catch (PDOException $e) {
+       
+        echo "Error fetching categories: " . $e->getMessage();
+        return [];
+    }
+}
+
 
 }
 
